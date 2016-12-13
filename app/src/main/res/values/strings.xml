@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SomaSoma</string>
+    <string name="check_box_text">All Ready Read</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+</resources>
