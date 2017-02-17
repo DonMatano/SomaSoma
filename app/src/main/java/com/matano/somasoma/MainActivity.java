@@ -8,6 +8,8 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
+import com.matano.somasoma.Model.FirebaseConnector;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,11 +20,20 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> semesterTitle;
     HashMap<String, List<String>> expandableListDetail;
+    FirebaseConnector connector;
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         expandableListView = (ExpandableListView)
                 findViewById(R.id.expandList);
         expandableListDetail = TrialList.getData();
@@ -71,5 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+        //connector = new FirebaseConnector();
     }
 }
