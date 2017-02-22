@@ -13,12 +13,30 @@ import java.util.List;
 public class FirebaseConnector
 {
     private DatabaseReference databaseReference;
+    private static FirebaseConnector connector;
 
+    public static  FirebaseConnector getInstance()
+    {
+        if (connector == null)
+        {
+            connector = new FirebaseConnector();
+        }
+        return connector;
+    }
 
-    public FirebaseConnector()
+    public DatabaseReference getDatabaseReference()
+    {
+        return databaseReference;
+    }
+
+    public void setDatabaseReference(DatabaseReference databaseReference)
+    {
+        this.databaseReference = databaseReference;
+    }
+
+    private FirebaseConnector()
     {
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        writeNewUrl();
     }
 
     private void writeNewUniversity()

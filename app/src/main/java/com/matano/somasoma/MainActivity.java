@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> semesterTitle;
     HashMap<String, List<String>> expandableListDetail;
-    FirebaseConnector connector;
+    FirebaseConnector connector = FirebaseConnector.getInstance();
 
     @Override
     protected void onStart()
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         expandableListView = (ExpandableListView)
                 findViewById(R.id.expandList);
-        expandableListDetail = TrialList.getData();
+        expandableListDetail = TrialList.getData(connector);
         semesterTitle = new ArrayList<String>(expandableListDetail.keySet());
         expandableListAdapter = new CustomExpandableListAdapter(this, semesterTitle,
                 expandableListDetail);
